@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arş. Gör. Dr. Sedat Örenç | Akademik Portfolyo</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Özel Stil Dosyamız -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigasyon Barı -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-academic sticky-top">
+        <div class="container">
+            <a class="navbar-brand js-modal-trigger" href="#" data-target="#modalUniversite">
+                <i class="fa-solid fa-graduation-cap me-2 brand-icon"></i><span data-lang="navBrand">Batman Üniversitesi</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link js-modal-trigger" href="#" data-target="#modalHakkimda"><i class="fa-solid fa-user me-1"></i> <span data-lang="navAbout">Hakkımda</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-modal-trigger" href="#" data-target="#modalArastirma"><i class="fa-solid fa-microscope me-1"></i> <span data-lang="navResearch">Araştırma</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-modal-trigger" href="#" data-target="#modalProjeler"><i class="fa-solid fa-code me-1"></i> <span data-lang="navProjects">Projeler</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-modal-trigger" href="#" data-target="#modalYayinlar"><i class="fa-solid fa-book me-1"></i> <span data-lang="navPublications">Yayınlar</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-modal-trigger" href="#" data-target="#modalProfiller"><i class="fa-solid fa-id-card me-1"></i> <span data-lang="navProfiles">Akademik Kimlikler</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-modal-trigger" href="#" data-target="#modalIletisim"><i class="fa-solid fa-envelope me-1"></i> <span data-lang="navContact">İletişim</span></a></li>
+                    
+                    <!-- Pro Dil Seçici Buton -->
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button id="langToggle" class="btn btn-warning btn-sm rounded-pill px-3 fw-bold text-dark" title="Dili Değiştir / Change Language">
+                            <i class="fa-solid fa-earth-americas me-1"></i> EN
+                        </button>
+                    </li>
+                    <!-- Tema Değiştirici Buton -->
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <button id="themeToggle" class="btn btn-outline-light btn-sm rounded-pill px-3" title="Temayı Değiştir">
+                            <i class="fa-solid fa-moon me-1"></i> <span data-lang="themeBtn">Karanlık Mod</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana Karşılama Ekranı (Hero) -->
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="display-3 fw-bold clickable-name js-modal-trigger" data-target="#modalHakkimda" title="Özgeçmişi İncele">
+                Arş. Gör. Dr. Sedat Örenç
+            </h1>
+            <p class="lead fs-4 text-light-50" data-lang="heroTitle">Elektrik-Elektronik Mühendisliği Anabilim Dalı</p>
+            <p class="location-text"><i class="fa-solid fa-location-dot me-2 text-warning"></i><span data-lang="heroFaculty">Mühendislik-Mimarlık Fakültesi</span></p>
+            
+            <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
+                <div class="p-4 card-interactive text-dark text-start hero-card js-modal-trigger" data-target="#modalProjeler">
+                    <h5 class="text-primary-custom"><i class="fa-solid fa-laptop-code me-2"></i><span data-lang="heroCard1Title">M²-ViM Projesi</span></h5>
+                    <p class="small text-muted mb-0" data-lang="heroCard1Desc">Morphology-Aware Vision Mamba ve derin öğrenme çalışmaları.</p>
+                </div>
+                <div class="p-4 card-interactive text-dark text-start hero-card js-modal-trigger" data-target="#modalYayinlar">
+                    <h5 class="text-primary-custom"><i class="fa-solid fa-scroll me-2"></i><span data-lang="heroCard2Title">Q1 İndeksli Yayınlar</span></h5>
+                    <p class="small text-muted mb-0" data-lang="heroCard2Desc">Uluslararası hakemli dergilerde basılmış güncel makaleler.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ana Sayfa Grid Yapısı -->
+    <main class="container my-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="p-4 card-interactive text-center h-100 main-page-card js-modal-trigger" data-target="#modalArastirma">
+                    <div class="icon-wrapper mb-3"><i class="fa-solid fa-brain fa-2x"></i></div>
+                    <h4 data-lang="gridCard1Title">Araştırma Alanları</h4>
+                    <p class="text-muted small" data-lang="gridCard1Desc">Tıbbi görüntü işleme, yapay zeka mimarileri ve hibrid sinir ağları.</p>
+                    <span class="btn-pro mt-2" data-lang="btnViewDetails">Detayları Gör</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 card-interactive text-center h-100 main-page-card js-modal-trigger" data-target="#modalYayinlar">
+                    <div class="icon-wrapper mb-3"><i class="fa-solid fa-book-open fa-2x"></i></div>
+                    <h4 data-lang="gridCard2Title">Akademik Yayınlar</h4>
+                    <p class="text-muted small" data-lang="gridCard2Desc">Uluslararası makaleler, Q1 indeksli çalışmalar ve bildiriler.</p>
+                    <span class="btn-pro mt-2" data-lang="btnViewPubs">Yayınları İncele</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 card-interactive text-center h-100 main-page-card js-modal-trigger" data-target="#modalProfiller">
+                    <div class="icon-wrapper mb-3"><i class="fa-solid fa-id-badge fa-2x"></i></div>
+                    <h4 data-lang="gridCard3Title">Akademik Profiller</h4>
+                    <p class="text-muted small" data-lang="gridCard3Desc">Scholar, YÖK, ORCID ve ABİS resmi ağ profilleriniz.</p>
+                    <span class="btn-pro mt-2" data-lang="btnGoProfiles">Profillere Git</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PENCERELER (MODALS) -->
+    
+    <!-- 1. Hakkımda Modalı -->
+    <div class="modal fade" id="modalHakkimda" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content pro-modal">
+                <div class="modal-header-pro">
+                    <h5 class="modal-title"><i class="fa-solid fa-user me-2"></i><span data-lang="modalAboutTitle">Akademik Özgeçmiş</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h4 class="text-primary-custom mb-3 fw-bold">Arş. Gör. Dr. Sedat Örenç</h4>
+                    <p class="lead text-secondary" data-lang="modalAboutSubtitle">Batman Üniversitesi Elektrik-Elektronik Mühendisliği Bölümü bünyesinde akademik ve bilimsel araştırmalarımı yürütmekteyim.</p>
+                    <hr class="pro-hr">
+                    <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-graduation-cap me-2 text-primary-custom"></i><span data-lang="modalAboutFocusTitle">Uzmanlık ve Çalışma Alanları</span></h5>
+                    <p data-lang="modalAboutFocusDesc">Doktora derecesine sahip bir araştırmacı olarak; yapay zeka tabanlı tıbbi veri analizi, bilgisayarlı görü, evrişimli sinir ağları (CNN), Vision Transformers (ViT) ve yeni nesil durum-uzay modelleri (Mamba mimarileri) üzerine odaklanmaktayım. Uluslararası yayın süreçleri yönetimi, Q1 düzeyindeki makale hazırlıkları ve robotik sistem tasarımları süreçlerinde deneyim sahibiyim.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Araştırma Alanları Modalı -->
+    <div class="modal fade" id="modalArastirma" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content pro-modal">
+                <div class="modal-header-pro">
+                    <h5 class="modal-title"><i class="fa-solid fa-microscope me-2"></i><span data-lang="modalResTitle">Araştırma Detayları</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="list-group list-group-flush pro-list">
+                        <div class="list-group-item p-4">
+                            <h6 class="fw-bold text-primary-custom"><i class="fa-solid fa-brain me-2"></i><span data-lang="modalResItem1Title">Derin Öğrenme ve Vision Transformers</span></h6>
+                            <p class="text-muted small mb-0" data-lang="modalResItem1Desc">Büyük ölçekli medikal ve görsel veri setlerinde yüksek doğruluklu öznitelik çıkarımı ve sınıflandırma hiyerarşileri.</p>
+                        </div>
+                        <div class="list-group-item p-4">
+                            <h6 class="fw-bold text-primary-custom"><i class="fa-solid fa-wave-square me-2"></i><span data-lang="modalResItem2Title">Tıbbi Görüntü Bölütleme (Segmentation)</span></h6>
+                            <p class="text-muted small mb-0" data-lang="modalResItem2Desc">Radyografiler ve klinik görüntü tipleri üzerinde patolojik yapıların otomatik tespiti ve morfolojik segmentasyonu.</p>
+                        </div>
+                        <div class="list-group-item p-4">
+                            <h6 class="fw-bold text-primary-custom"><i class="fa-solid fa-robot me-2"></i><span data-lang="modalResItem3Title">Robotik ve Gömülü Sistemler Eğitimi</span></h6>
+                            <p class="text-muted small mb-0" data-lang="modalResItem3Desc">Arduino ve Raspberry Pi platformları üzerinden akıllı donanım entegrasyonu ve otonom sistem müfredatları.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Projeler Modalı -->
+    <div class="modal fade" id="modalProjeler" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content pro-modal">
+                <div class="modal-header-pro">
+                    <h5 class="modal-title"><i class="fa-solid fa-code me-2"></i><span data-lang="modalProjTitle">Bilimsel Projeler</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="project-box mb-4 pb-3 border-bottom">
+                        <h5 class="text-primary-custom fw-bold">M²-ViM: Morphology-Aware Vision Mamba Framework</h5>
+                        <p class="small text-muted" data-lang="modalProj1Desc">Klinik görüntülerin sınıflandırılması ve morfolojik sınır analizi için geliştirilmiş, yüksek performanslı durum-uzay model mimarisi tasarımı ve PyTorch optimizasyonu.</p>
+                        <div class="gap-1 d-flex flex-wrap"><span class="badge badge-tech">PyTorch</span><span class="badge badge-tech">Mamba</span><span class="badge badge-tech">Medical AI</span></div>
+                    </div>
+                    <div class="project-box">
+                        <h5 class="text-primary-custom fw-bold" data-lang="modalProj2Title">Lateral Diz Radyografisi Otomatik Segmentasyonu</h5>
+                        <p class="small text-muted" data-lang="modalProj2Desc">Ortopedik lateral diz radyografilerinde patella ve patellar tendon yapılarının hibrid derin öğrenme ağları ile otomatik tespiti.</p>
+                        <div class="gap-1 d-flex flex-wrap"><span class="badge badge-tech">Python</span><span class="badge badge-tech">Segmentation</span><span class="badge badge-tech">CNN</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Yayınlar Modalı -->
+    <div class="modal fade" id="modalYayinlar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content pro-modal">
+                <div class="modal-header-pro">
+                    <h5 class="modal-title"><i class="fa-solid fa-book me-2"></i><span data-lang="modalPubTitle">Literatür ve Makaleler</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="publication-card p-3 mb-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h6 class="fw-bold text-dark mb-0">M²-ViM: Morphology-Aware Vision Mamba Framework for Clinical Image Classification</h6>
+                            <span class="badge bg-success-custom">Q1 Journal</span>
+                        </div>
+                        <p class="small text-muted mb-0"><i class="fa-regular fa-user me-1"></i> Örenç, S., Türkeri, C., Alaca, Y. (2026)</p>
+                    </div>
+                    <div class="publication-card p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h6 class="fw-bold text-dark mb-0">Automated Segmentation of Patellar Structures on Lateral Knee Radiographs Using Hybrid Architectures</h6>
+                            <span class="badge bg-secondary-custom" data-lang="modalPubIndexBadge">Uluslararası Hakemli</span>
+                        </div>
+                        <p class="small text-muted mb-0"><i class="fa-regular fa-user me-1"></i> Örenç, S. (2026)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Akademik Profiller Modalı -->
+    <div class="modal fade" id="modalProfiller" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content pro-modal">
+                <div class="modal-header-pro">
+                    <h5 class="modal-title"><i class="fa-solid fa-id-card me-2"></i><span data-lang="modalProfTitle">Uluslararası Akademik Ağlar</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted small mb-4" data-lang="modalProfSubtitle">Güncel akademik performans, atıflar ve resmi kurumsal profillerinize aşağıdaki bağlantılardan erişebilirsiniz:</p>
+                    
+                    <div class="d-grid gap-3">
+                        <a href="https://scholar.google.com/citations?hl=tr&user=053kTJ8AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="academic-link-card d-flex align-items-center p-3 text-decoration-none">
+                            <div class="academic-icon scholar-bg"><i class="fa-graduation-cap fa-solid"></i></div>
+                            <div class="ms-3 text-start">
+                                <h6 class="mb-0 fw-bold text-dark data-theme-text">Google Scholar</h6>
+                                <small class="text-muted" data-lang="scholarDesc">Atıflar, h-endeksi ve kronolojik yayın listesi</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right ms-auto text-muted"></i>
+                        </a>
+
+                        <a href="https://akademik.yok.gov.tr/AkademikArama/view/viewAuthor.jsp" target="_blank" class="academic-link-card d-flex align-items-center p-3 text-decoration-none">
+                            <div class="academic-icon yok-bg"><i class="fa-university fa-solid"></i></div>
+                            <div class="ms-3 text-start">
+                                <h6 class="mb-0 fw-bold text-dark data-theme-text">YÖK Akademik</h6>
+                                <small class="text-muted" data-lang="yokDesc">Yükseköğretim Kurulu resmi araştırmacı havuz kaydı</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right ms-auto text-muted"></i>
+                        </a>
+
+                        <a href="https://batman.edu.tr/abis/personel/index.php?pers_id=12231" target="_blank" class="academic-link-card d-flex align-items-center p-3 text-decoration-none">
+                            <div class="academic-icon avesis-bg"><i class="fa-building-columns fa-solid"></i></div>
+                            <div class="ms-3 text-start">
+                                <h6 class="mb-0 fw-bold text-dark data-theme-text">Batman Üni. ABİS</h6>
+                                <small class="text-muted" data-lang="abisDesc">Resmi Kurumsal Akademik Bilgi Sistemi Sayfası</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right ms-auto text-muted"></i>
+                        </a>
+
+                        <a href="https://orcid.org/0000-0002-1190-2849" target="_blank" class="academic-link-card d-flex align-items-center p-3 text-decoration-none">
+                            <div class="academic-icon orcid-bg"><i class="fa-brands fa-orcid"></i></div>
+                            <div class="ms-3 text-start">
+                                <h6 class="mb-0 fw-bold text-dark data-theme-text">ORCID iD</h6>
+                                <small class="text-muted">0000-0002-1190-2849 benzersiz araştırmacı numarası</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right ms-auto text-muted"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. İletişim Modalı -->
+    <div class="modal fade" id="modalIletisim" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content pro-modal">
+                <div class="modal-header-pro">
+                    <h5 class="modal-title"><i class="fa-solid fa-envelope me-2"></i><span data-lang="modalContTitle">Akademik İletişim</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-close="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="contact-info-block mb-4 p-3 rounded">
+                        <p class="mb-2"><i class="fa-solid fa-building text-primary-custom me-2"></i> <span data-lang="modalContAddress">Batman Üniversitesi, Mühendislik-Mimarlık Fakültesi</span></p>
+                        <p class="mb-2"><i class="fa-solid fa-at text-primary-custom me-2"></i> sedat.orenc@batman.edu.tr</p>
+                    </div>
+                    <form id="contactForm">
+                        <div class="mb-3"><input type="text" id="formName" class="form-control pro-input" placeholder="Adınız Soyadınız" required></div>
+                        <div class="mb-3"><input type="email" id="formEmail" class="form-control pro-input" placeholder="E-posta Adresiniz" required></div>
+                        <div class="mb-3"><textarea id="formMessage" class="form-control pro-input" rows="3" placeholder="Mesajınız..." required></textarea></div>
+                        <button type="submit" id="formSubmitBtn" class="btn btn-primary-custom w-100">Güvenli Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Kurum Bilgi Modalı -->
+    <div class="modal fade" id="modalUniversite" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content pro-modal text-center p-4">
+                <div class="university-logo-wrapper mb-3"><i class="fa-solid fa-university fa-3x text-primary-custom"></i></div>
+                <h5 class="fw-bold">Batman Üniversitesi</h5>
+                <p class="text-muted small" data-lang="modalUniDesc">Mühendislik-Mimarlık Fakültesi<br>Elektrik-Elektronik Mühendisliği</p>
+                <a href="https://www.batman.edu.tr" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill px-3" data-lang="modalUniBtn">Resmi Web Sitesi</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Başarı Bildirimi -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body"><i class="fa-solid fa-circle-check me-2"></i> <span id="toastText">Mesajınız başarıyla akademisyene iletildi!</span></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="pro-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 Arş. Gör. Dr. Sedat Örenç. <span data-lang="footerText">Tüm Hakları Saklıdır.</span></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Özel Scriptimiz -->
+    <script src="script.js"></script>
+</body>
+</html>
