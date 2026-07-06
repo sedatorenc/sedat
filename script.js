@@ -1,67 +1,71 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Akademik Motor 3.0: Çoklu Dil Desteği ve Güvenli Kapatma Sistemleri Hazır.");
+    console.log("Akademik Dashboard Motoru Fullscreen Modu Aktif.");
 
-    // --- 1. DİL VERİ HAVUZU (TR / EN) ---
+    // --- TR / EN DİL SÖZLÜĞÜ ---
     const languages = {
         tr: {
             navBrand: "Batman Üniversitesi",
             navAbout: "Hakkımda", navResearch: "Araştırma", navProjects: "Projeler", navPublications: "Yayınlar", navProfiles: "Akademik Kimlikler", navContact: "İletişim",
+            navLectures: "Ders Notları",
+            lecture1: "Katıhal Elektroniği", lecture2: "Dijital Okuryazarlık", lecture3: "Özel Konular", lecture4: "Yüksek Lisans Dersi",
+            homeLecturesTitle: "Aktif Dönem Ders Notları",
+            homeLecturesDesc: "İlgili dersin dökümanlarına, haftalık içeriklerine ve kaynaklarına erişmek için ders kartına tıklayınız.",
+            viewNotes: "Notları İncele &rarr;",
+            modalNotesTitle: "Ders Dökümanları",
+            weekContent: "Haftalık Ders İçerikleri",
+            syllabusDownload: "Ders izlencesini ve kaynakları bilgisayarınıza indirin:",
+            gradLevel: "Derin Öğrenme Tabanlı Görüntü Analizi (MSc)",
+            gradDesc: "Bu ders kapsamında lisansüstü düzeyde tıbbi görüntü segmentasyonu, CNN, Vision Transformers ve modern hibrid durum-uzay (Mamba) mimarileri incelenmektedir.",
             themeBtn: "Karanlık Mod",
             heroTitle: "Elektrik-Elektronik Mühendisliği Anabilim Dalı", heroFaculty: "Mühendislik-Mimarlık Fakültesi",
-            heroCard1Title: "M²-ViM Projesi", heroCard1Desc: "Morphology-Aware Vision Mamba ve derin öğrenme çalışmaları.",
-            heroCard2Title: "Q1 İndeksli Yayınlar", heroCard2Desc: "Uluslararası hakemli dergilerde basılmış güncel makaleler.",
-            gridCard1Title: "Araştırma Alanları", gridCard1Desc: "Tıbbi görüntü işleme, yapay zeka mimarileri ve hibrid sinir ağları.",
-            gridCard2Title: "Akademik Yayınlar", gridCard2Desc: "Uluslararası makaleler, Q1 indeksli çalışmalar ve bildiriler.",
-            gridCard3Title: "Akademik Profiller", gridCard3Desc: "Scholar, YÖK, ORCID ve ABİS resmi ağ profilleriniz.",
-            btnViewDetails: "Detayları Gör", btnViewPubs: "Yayınları İncele", btnGoProfiles: "Profillere Git",
+            sideIdentity: "Akademik Kimlik", sideFaculty: "Mühendislik-Mimarlık Fak.", sideMetrics: "Araştırma Metrikleri", metricJournals: "Dergiler", sideNetworks: "Hızlı Erişim Ağları",
+            btnAllProfiles: "Tüm Profilleri Listele", homeProjTitle: "Öne Çıkan Mimari Tasarımlar", homeTimelineTitle: "Akademik Yol Haritası",
+            tl1Title: "Doktora Mezuniyeti (PhD)", tl1Desc: "Elektrik-Elektronik Mühendisliği Anabilim Dalı, Yapay Zeka ve Medikal Görüntü İşleme Odaklı Tez Çalışması.",
+            tl2Title: "Araştırma Görevlisi", tl2Desc: "Mühendislik-Mimarlık Fakültesi bünyesinde akademik araştırma, proje ve laboratuvar süreçlerinin yürütülmesi.",
+            homePubTitle: "Son Literatür Yayınları", btnAll: "Tümünü Gör",
             modalAboutTitle: "Akademik Özgeçmiş",
             modalAboutSubtitle: "Batman Üniversitesi Elektrik-Elektronik Mühendisliği Bölümü bünyesinde akademik ve bilimsel araştırmalarımı yürütmekteyim.",
             modalAboutFocusTitle: "Uzmanlık ve Çalışma Alanları",
-            modalAboutFocusDesc: "Doktora derecesine sahip bir araştırmacı olarak; yapay zeka tabanlı tıbbi veri analizi, bilgisayarlı görü, evrişimli sinir ağları (CNN), Vision Transformers (ViT) ve yeni nesil durum-uzay modelleri (Mamba mimarileri) üzerine odaklanmaktayım. Uluslararası yayın süreçleri yönetimi, Q1 düzeyindeki makale hazırlıkları ve robotik sistem tasarımları süreçlerinde deneyim sahibiyim.",
-            modalResTitle: "Araştırma Detayları",
-            modalResItem1Title: "Derin Öğrenme ve Vision Transformers", modalResItem1Desc: "Büyük ölçekli medikal ve görsel veri setlerinde yüksek doğruluklu öznitelik çıkarımı ve sınıflandırma hiyerarşileri.",
-            modalResItem2Title: "Tıbbi Görüntü Bölütleme (Segmentation)", modalResItem2Desc: "Radyografiler ve klinik görüntü tipleri üzerinde patolojik yapıların otomatik tespiti ve morfolojik segmentasyonu.",
-            modalResItem3Title: "Robotik ve Gömülü Sistemler Eğitimi", modalResItem3Desc: "Arduino ve Raspberry Pi platformları üzerinden akıllı donanım entegrasyonu ve otonom sistem müfredatları.",
-            modalProjTitle: "Bilimsel Projeler",
-            modalProj1Desc: "Klinik görüntülerin sınıflandırılması ve morfolojik sınır analizi için geliştirilmiş, yüksek performanslı durum-uzay model mimarisi tasarımı ve PyTorch optimizasyonu.",
+            modalAboutFocusDesc: "Doktora derecesine sahip bir araştırmacı olarak; yapay zeka tabanlı tıbbi veri analizi, bilgisayarlı görü, evrişimli sinir ağları (CNN), Vision Transformers (ViT) ve yeni nesil durum-uzay modelleri (Mamba mimarileri) üzerine odaklanmaktayım.",
+            modalResTitle: "Araştırma Detayları", modalResItem1Title: "Derin Öğrenme ve Vision Transformers", modalResItem1Desc: "Büyük ölçekli medikal ve görsel veri setlerinde yüksek doğruluklu öznitelik çıkarımı.",
+            modalProjTitle: "Bilimsel Projeler", modalProj1Desc: "Klinik görüntülerin sınıflandırılması ve morfolojik sınır analizi için geliştirilmiş, yüksek performanslı durum-uzay model mimarisi tasarımı ve PyTorch optimizasyonu.",
             modalProj2Title: "Lateral Diz Radyografisi Otomatik Segmentasyonu", modalProj2Desc: "Ortopedik lateral diz radyografilerinde patella ve patellar tendon yapılarının hibrid derin öğrenme ağları ile otomatik tespiti.",
             modalPubTitle: "Literatür ve Makaleler", modalPubIndexBadge: "Uluslararası Hakemli",
-            modalProfTitle: "Uluslararası Akademik Ağlar", modalProfSubtitle: "Güncel akademik performans, atıflar ve resmi kurumsal profillerinize aşağıdaki bağlantılardan erişebilirsiniz:",
-            scholarDesc: "Atıflar, h-endeksi ve kronolojik yayın listesi", yokDesc: "Yükseköğretim Kurulu resmi araştırmacı havuz kaydı", abisDesc: "Resmi Kurumsal Akademik Bilgi Sistemi Sayfası",
-            modalContTitle: "Akademik İletişim", modalContAddress: "Batman Üniversitesi, Mühendislik-Mimarlık Fakültesi",
+            modalProfTitle: "Uluslararası Akademik Ağlar", modalContTitle: "Akademik İletişim", modalContAddress: "Batman Üniversitesi, Mühendislik-Mimarlık Fakültesi",
             formNamePh: "Adınız Soyadınız", formEmailPh: "E-posta Adresiniz", formMsgPh: "Mesajınız...", formSubmit: "Güvenli Gönder",
-            toastSuccess: "Mesajınız başarıyla akademisyene iletildi!",
-            modalUniDesc: "Mühendislik-Mimarlık Fakültesi<br>Elektrik-Elektronik Mühendisliği", modalUniBtn: "Resmi Web Sitesi", footerText: "Tüm Hakları Saklıdır."
+            toastSuccess: "Mesajınız başarıyla akademisyene iletildi!", modalUniBtn: "Resmi Web Sitesi", footerText: "Tüm Hakları Saklıdır."
         },
         en: {
             navBrand: "Batman University",
-            navAbout: "About Me", navResearch: "Research Areas", navProjects: "Projects", navPublications: "Publications", navProfiles: "Academic IDs", navContact: "Contact",
+            navAbout: "About Me", navResearch: "Research", navProjects: "Projects", navPublications: "Publications", navProfiles: "Academic IDs", navContact: "Contact",
+            navLectures: "Lecture Notes",
+            lecture1: "Solid State Electronics", lecture2: "Digital Literacy", lecture3: "Special Topics", lecture4: "Graduate Course",
+            homeLecturesTitle: "Active Semester Lecture Notes",
+            homeLecturesDesc: "Click on the lecture card to access related documents, weekly syllabus, and resources.",
+            viewNotes: "View Notes &rarr;",
+            modalNotesTitle: "Course Documents",
+            weekContent: "Weekly Syllabus Content",
+            syllabusDownload: "Download the syllabus and resources to your computer:",
+            gradLevel: "Deep Learning-Based Image Analysis (MSc)",
+            gradDesc: "This graduate course covers medical image segmentation, CNNs, Vision Transformers, and modern hybrid state-space (Mamba) architectures.",
             themeBtn: "Dark Mode",
-            heroTitle: "Department of Electrical-Electronics Engineering", heroFaculty: "Faculty of Engineering and Architecture",
-            heroCard1Title: "M²-ViM Project", heroCard1Desc: "Morphology-Aware Vision Mamba framework and deep learning research.",
-            heroCard2Title: "Q1 Indexed Publications", heroCard2Desc: "Recent articles published in international peer-reviewed Q1 journals.",
-            gridCard1Title: "Research Areas", gridCard1Desc: "Medical image processing, deep learning architectures, and hybrid neural networks.",
-            gridCard2Title: "Academic Publications", gridCard2Desc: "International articles, Q1 tier papers, and conference proceedings.",
-            gridCard3Title: "Academic Profiles", gridCard3Desc: "Scholar, YÖK, ORCID, and ABIS institutional networks.",
-            btnViewDetails: "View Details", btnViewPubs: "View Publications", btnGoProfiles: "Go to Profiles",
+            heroTitle: "Department of Electrical-Electronics Engineering", heroFaculty: "Faculty of Engineering & Architecture",
+            sideIdentity: "Academic Identity", sideFaculty: "Faculty of Eng. & Architecture", sideMetrics: "Research Metrics", metricJournals: "Journals", sideNetworks: "Quick Access Networks",
+            btnAllProfiles: "List All Profiles", homeProjTitle: "Featured Architecture Designs", homeTimelineTitle: "Academic Roadmap",
+            tl1Title: "PhD Graduation", tl1Desc: "Department of Electrical-Electronics Engineering, AI and Medical Image Processing focused thesis.",
+            tl2Title: "Research Assistant", tl2Desc: "Execution of academic research, project tracking and laboratory processes within the Faculty.",
+            homePubTitle: "Recent Literature Publications", btnAll: "View All",
             modalAboutTitle: "Academic Biography",
             modalAboutSubtitle: "I am working as a Research Assistant PhD in the Department of Electrical-Electronics Engineering at Batman University.",
             modalAboutFocusTitle: "Expertise & Research Focus",
-            modalAboutFocusDesc: "As a PhD researcher, I focus on AI-driven medical data analysis, computer vision, Convolutional Neural Networks (CNNs), Vision Transformers (ViTs), and next-generation state-space architectures (Mamba models). I have intensive experience in international Q1 publishing workflows and academic robotics projects.",
-            modalResTitle: "Research Details",
-            modalResItem1Title: "Deep Learning & Vision Transformers", modalResItem1Desc: "High-accuracy feature extraction and classification hierarchies on large-scale medical and visual datasets.",
-            modalResItem2Title: "Medical Image Segmentation", modalResItem2Desc: "Automated detection and morphology-aware boundary segmentation of anatomical structures on radiographs.",
-            modalResItem3Title: "Robotics & Embedded Systems Curriculum", modalResItem3Desc: "Smart hardware integration via Arduino and Raspberry Pi for student-driven engineering projects.",
-            modalProjTitle: "Scientific Projects",
-            modalProj1Desc: "Development and PyTorch optimization of an innovative, morphology-aware Vision Mamba framework for clinical classification tasks.",
+            modalAboutFocusDesc: "As a PhD researcher, I focus on AI-driven medical data analysis, computer vision, Convolutional Neural Networks (CNNs), Vision Transformers (ViTs), and next-generation state-space architectures (Mamba models).",
+            modalResTitle: "Research Details", modalResItem1Title: "Deep Learning & Vision Transformers", modalResItem1Desc: "High-accuracy feature extraction on large-scale medical and visual datasets.",
+            modalProjTitle: "Scientific Projects", modalProj1Desc: "Development and PyTorch optimization of an innovative, morphology-aware Vision Mamba framework for clinical classification tasks.",
             modalProj2Title: "Automated Lateral Knee Radiograph Segmentation", modalProj2Desc: "Automated identification and tracking of patellar structures on knee radiographs using hybrid deep networks.",
             modalPubTitle: "Literature & Articles", modalPubIndexBadge: "International Indexed",
-            modalProfTitle: "International Academic Networks", modalProfSubtitle: "You can access up-to-date research metrics, citations, and official institutional records via the links below:",
-            scholarDesc: "Citations, h-index, and chronological publication tracking", yokDesc: "Official researcher database of the Council of Higher Education", abisDesc: "Official Institutional Academic Information System page",
-            modalContTitle: "Academic Correspondence", modalContAddress: "Batman University, Faculty of Engineering & Architecture",
+            modalProfTitle: "International Academic Networks", modalContTitle: "Academic Correspondence", modalContAddress: "Batman University, Faculty of Engineering & Architecture",
             formNamePh: "Your Full Name", formEmailPh: "Your Email Address", formMsgPh: "Your Message...", formSubmit: "Secure Send",
-            toastSuccess: "Your message has been successfully delivered to the researcher!",
-            modalUniDesc: "Faculty of Engineering and Architecture<br>Electrical-Electronics Engineering", modalUniBtn: "Official Website", footerText: "All Rights Reserved."
+            toastSuccess: "Your message has been successfully delivered!", modalUniBtn: "Official Website", footerText: "All Rights Reserved."
         }
     };
 
@@ -70,29 +74,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateLanguage(lang) {
         document.querySelectorAll("[data-lang]").forEach(element => {
             const key = element.getAttribute("data-lang");
-            if (languages[lang][key]) {
-                if (key === "modalUniDesc") {
-                    element.innerHTML = languages[lang][key];
-                } else {
-                    element.textContent = languages[lang][key];
-                }
-            }
+            if (languages[lang][key]) element.textContent = languages[lang][key];
         });
-
-        // Form placeholder'larını güncelle
         if (document.getElementById("formName")) {
             document.getElementById("formName").placeholder = languages[lang].formNamePh;
             document.getElementById("formEmail").placeholder = languages[lang].formEmailPh;
             document.getElementById("formMessage").placeholder = languages[lang].formMsgPh;
             document.getElementById("formSubmitBtn").textContent = languages[lang].formSubmit;
         }
-
-        // Dil Değiştirme Butonu Tasarımını Güncelle
-        const langToggle = document.getElementById("langToggle");
-        langToggle.innerHTML = lang === "tr" ? '<i class="fa-solid fa-earth-americas me-1"></i> EN' : '<i class="fa-solid fa-earth-americas me-1"></i> TR';
+        document.getElementById("langToggle").innerHTML = lang === "tr" ? '<i class="fa-solid fa-earth-americas me-1"></i> EN' : '<i class="fa-solid fa-earth-americas me-1"></i> TR';
     }
 
-    // İlk açılışta dili ayarla
     updateLanguage(currentLang);
 
     document.getElementById("langToggle").addEventListener("click", function () {
@@ -101,17 +93,12 @@ document.addEventListener("DOMContentLoaded", function () {
         updateLanguage(currentLang);
     });
 
-    // --- 2. ÇAKIŞMA/DONMA ÖNLEYİCİ MİMARİ ---
+    // --- GÜVENLİ MANUEL TETİKLEME MOTORU (DONMAYI / KAPANMAMAYI ÖNLER) ---
     const modalTriggers = document.querySelectorAll('.js-modal-trigger');
-
     modalTriggers.forEach(trigger => {
         trigger.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            // Eğer pencere içindeki X butonuna veya kapatma elemanına basıldıysa JS tetiklemesini kes
-            if (e.target.closest('[data-bs-dismiss="modal"]') || e.target.classList.contains('btn-close')) {
-                return;
-            }
+            if (e.target.closest('[data-bs-dismiss="modal"]') || e.target.classList.contains('btn-close')) return;
 
             const targetId = this.getAttribute('data-target');
             if (targetId) {
@@ -127,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // --- 3. DARK MODE (TEMA) MOTORU ---
+    // --- THEME ENGINE ---
     const themeToggle = document.getElementById('themeToggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
 
@@ -149,30 +136,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // --- 4. İLETİŞİM FORMU ---
+    // --- FORM HANDLER ---
     const contactForm = document.getElementById("contactForm");
-    const successToast = document.getElementById("successToast");
-    const toastText = document.getElementById("toastText");
-
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
-
-            if (typeof bootstrap !== 'undefined' && successToast) {
-                toastText.textContent = languages[currentLang].toastSuccess;
-                const toast = new bootstrap.Toast(successToast);
-                toast.show();
+            if (typeof bootstrap !== 'undefined' && document.getElementById("successToast")) {
+                document.getElementById("toastText").textContent = languages[currentLang].toastSuccess;
+                new bootstrap.Toast(document.getElementById("successToast")).show();
             }
-
             contactForm.reset();
-
-            const modalElement = document.getElementById("modalIletisim");
-            if (modalElement) {
-                const modalInstance = bootstrap.Modal.getInstance(modalElement);
-                if (modalInstance) {
-                    setTimeout(() => { modalInstance.hide(); }, 1200);
-                }
-            }
+            const modalInstance = bootstrap.Modal.getInstance(document.getElementById("modalIletisim"));
+            if (modalInstance) setTimeout(() => { modalInstance.hide(); }, 1200);
         });
     }
 });
