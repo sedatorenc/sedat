@@ -2,11 +2,13 @@
     --primary-color: #1e3c72;
     --secondary-color: #2a5298;
     --accent-color: #ffd700;
+    --accent-glowing: rgba(255, 215, 0, 0.6);
     --bg-light: #f8fafc;
     --text-main: #1e293b;
     --card-bg: #ffffff;
     --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     --border-color: #e2e8f0;
+    --transition-speed: 0.3s;
 }
 
 [data-theme="dark"] {
@@ -15,16 +17,19 @@
     --card-bg: #1e293b;
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     --border-color: #334155;
+    --accent-glowing: rgba(255, 215, 0, 0.4);
 }
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: var(--bg-light);
     color: var(--text-main);
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .cursor-pointer { cursor: pointer; }
+.text-xs-custom { font-size: 0.75rem; }
+.justify-between { justify-content: space-between !important; }
 
 /* --- Navigasyon --- */
 .navbar-academic {
@@ -34,68 +39,96 @@ body {
 }
 .navbar-nav .nav-link {
     font-weight: 600; color: rgba(255, 255, 255, 0.9) !important; margin-left: 15px; cursor: pointer;
+    transition: color var(--transition-speed) ease;
 }
 .navbar-nav .nav-link:hover { color: var(--accent-color) !important; }
 
-/* --- Compact Hero --- */
-.hero-section-compact {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white; position: relative; border-bottom: 4px solid var(--border-color);
+/* --- Çoklu Slaytlı Başlık Banner Mimari Yapısı --- */
+.hero-slider-bg-track {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
 }
-.bg-blur {
-    background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(5px); color: white; font-size: 0.9rem; padding: 8px 16px;
+.hero-slide-img {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 1.5s ease-in-out;
+}
+.hero-slide-img.active-slide {
+    opacity: 1;
 }
 
+.main-hero-name { cursor: pointer; display: inline-block; transition: all var(--transition-speed) ease; }
+.main-hero-name:hover { color: var(--accent-color); transform: scale(1.02); text-shadow: 0 0 15px var(--accent-glowing); }
+.bg-blur { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(5px); color: white; font-size: 0.9rem; padding: 8px 16px; }
+
 /* --- Pro Grid Kart Mimarileri --- */
-.sidebar-profile-card, .main-content-card {
-    background-color: var(--card-bg); border: 1px solid var(--border-color);
-    border-radius: 16px; box-shadow: var(--card-shadow); transition: transform 0.3s;
-}
+.sidebar-profile-card, .main-content-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; box-shadow: var(--card-shadow); transition: all var(--transition-speed); }
 .contact-list-sidebar li { margin-bottom: 12px; font-size: 0.95rem; }
 
 .metric-box {
     background: rgba(30, 60, 114, 0.04); border: 1px solid var(--border-color); border-radius: 12px;
-    transition: all 0.2s ease;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1); min-height: 90px;
 }
 .metric-box:hover {
-    transform: scale(1.04);
-    background: rgba(30, 60, 114, 0.08);
+    transform: translateY(-5px) scale(1.03); border-color: var(--accent-color); box-shadow: 0 8px 20px var(--accent-glowing); background: var(--card-bg);
 }
-[data-theme="dark"] .metric-box { background: rgba(255, 255, 255, 0.05); }
+.btn-xs-custom { padding: 3px 6px; font-size: 0.72rem; font-weight: 700; border-radius: 6px; border: none; }
 
-.highlight-project-box {
-    background: rgba(30, 60, 114, 0.02); border-left: 4px solid var(--primary-color); border-radius: 4px;
-}
-
-.lecture-card {
-    background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 12px; cursor: pointer; transition: all 0.3s;
-}
-.lecture-card:hover { transform: translateY(-4px); border-color: var(--primary-color); }
+.highlight-project-box { background: rgba(30, 60, 114, 0.02); border-left: 4px solid var(--primary-color); border-radius: 4px; transition: all var(--transition-speed) ease; }
+.lecture-card { background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 12px; cursor: pointer; transition: all var(--transition-speed) ease; }
+.lecture-card:hover { transform: translateY(-5px); border-color: var(--accent-color); box-shadow: 0 8px 25px var(--accent-glowing); }
 .lecture-icon-box { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
 
-/* --- Timeline --- */
-.academic-timeline { position: relative; padding-left: 20px; border-left: 2px solid var(--border-color); }
-.timeline-item { position: relative; margin-bottom: 25px; }
-.timeline-badge { position: absolute; left: -27px; top: 4px; width: 12px; height: 12px; border-radius: 50%; }
+.article-clickable-item { cursor: pointer; transition: all var(--transition-speed) ease; }
+.article-clickable-item:hover {
+    border-color: var(--accent-color) !important; background-color: rgba(255, 215, 0, 0.04) !important; transform: scale(1.01); box-shadow: 0 5px 15px var(--accent-glowing);
+}
 
-/* --- Genel Ögeler --- */
+.add-article-panel { background-color: rgba(30, 60, 114, 0.03); border: 1px dashed var(--primary-color); }
+.border-secondary-custom-line { border-color: var(--border-color) !important; }
 .text-primary-custom { color: #2563eb; }
 [data-theme="dark"] .text-primary-custom { color: var(--accent-color); }
 [data-theme="dark"] .data-theme-text { color: #ffffff !important; }
 
 .badge-tech { background-color: #f1f5f9; color: #334155; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--border-color); }
-[data-theme="dark"] .badge-tech { background-color: #334155; color: #f1f5f9; }
-
 .publication-card { background: rgba(0,0,0,0.01); border-radius: 8px; border: 1px solid var(--border-color); }
 .pro-modal { border: none; border-radius: 0; background-color: var(--card-bg); color: var(--text-main); }
 .modal-header-pro { background: var(--primary-color); color: white; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; }
 
-[data-theme="dark"] .modal-body, [data-theme="dark"] .list-group-item { background-color: var(--card-bg) !important; color: var(--text-main) !important; border-color: var(--border-color); }
-
-.academic-link-card { background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; }
+/* Akademik Medya İkonları */
 .academic-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; }
 .scholar-bg { background: #4285f4; } .yok-bg { background: #b91c1c; } .avesis-bg { background: #0f766e; } .orcid-bg { background: #a6ce39; }
+.rg-bg { background: #00ccbb; } /* ResearchGate */
 
 .pro-input { border: 2px solid var(--border-color); padding: 10px; border-radius: 8px; background-color: var(--card-bg); color: var(--text-main); }
 .btn-primary-custom { background: var(--primary-color); color: white; padding: 10px; border-radius: 8px; border: none; }
+
+.academic-timeline { position: relative; padding-left: 20px; border-left: 2px solid var(--border-color); }
+.timeline-item { position: relative; margin-bottom: 25px; }
+.timeline-badge { position: absolute; left: -27px; top: 4px; width: 12px; height: 12px; border-radius: 50%; }
 .pro-footer { background: var(--primary-color); color: rgba(255, 255, 255, 0.8); padding: 20px 0; margin-top: 50px; }
+
+/* Ticker (Kayan Yazı) */
+.announcement-ticker-zone {
+    height: 140px; overflow: hidden; position: relative;
+    background: rgba(0, 0, 0, 0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 10px;
+}
+.ticker-inner-wrapper { position: absolute; width: 95%; animation: scrollTicker 14s linear infinite; }
+@keyframes scrollTicker { 0% { top: 100%; } 100% { top: -120%; } }
+.announcement-box-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+
+/* Seminer Kayan Şerit Yapısı */
+.seminar-poster-ticker-zone {
+    background: rgba(0, 0, 0, 0.01); border: 1px solid var(--border-color); border-radius: 10px; padding: 8px; height: 170px;
+}
+.poster-track { display: flex; overflow-x: auto; scroll-behavior: smooth; white-space: nowrap; padding-bottom: 5px; }
+.poster-track::-webkit-scrollbar { height: 4px; }
+.poster-track::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
+.poster-slide-wrapper { display: inline-block; transition: transform 0.2s; }
+.poster-slide-wrapper:hover { transform: scale(1.04); }
+
+/* Sadece Admin Bölümlerine Ait Çizgiler */
+.border-dashed { border-style: dashed !important; }
+.admin-course-zone { background-color: rgba(30, 60, 114, 0.02); border-color: var(--primary-color) !important; }
+.btn-xs { padding: 2px 6px; font-size: 0.75rem; border-radius: 4px; }
+.animate-avatar { transition: transform 0.3s ease; }
+.animate-avatar:hover { transform: rotate(5deg) scale(1.02); }
